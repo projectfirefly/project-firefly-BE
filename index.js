@@ -1,5 +1,5 @@
 require('dotenv').config(); // load .env variables
-
+// setting up staging
 const server = require('./server.js');
 
 const port = process.env.PORT || 3300;
