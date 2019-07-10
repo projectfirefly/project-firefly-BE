@@ -1,4 +1,6 @@
 require('dotenv').config(); // load .env variables
+// setting up staging
+// setting up development
 
 const server = require('./server.js');
 
