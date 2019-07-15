@@ -7,6 +7,7 @@ exports.up = function(knex) {
       .notNullable()
       .unique();
     users.string("password", 255).notNullable();
+
     users.string("first_name", 255).notNullable();
     users.string("last_name", 255).notNullable();
 
@@ -17,9 +18,15 @@ exports.up = function(knex) {
     users.string("country", 255).notNullable();
 
     users.string("marital_status", 255);
-    users.string("mailing_address", 255);
+    users.string("job", 255);
     users.string("education", 255);
     users.integer("age", 3);
+    users.string("kid_relation", 255);
+
+    users
+      .boolean("academic_research", 255)
+      .notNullable()
+      .defaultTo(false);
 
     users
       .integer("kid_id")
