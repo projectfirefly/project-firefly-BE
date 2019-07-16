@@ -14,10 +14,40 @@ module.exports = gql`
   type User {
     id: ID!
     username: String!
-    password: String!
+    first_name: String!
+    last_name: String!
+    city: String!
+    state: String!
+    zip_code: String!
+    country: String!
+    marital_status: String
+    job: String
+    education: String
+    age: Int!
+    kid_relation: String
+    academic_research: Boolean!
+    kids: [Kid!]!
+  }
+  type Kid {
+    id: ID!
+    username: String!
+    first_name: String!
+    last_name: String
+    city: String
+    state: String
+    zip_code: String
+    country: String
+    age: Int!
+    grade: String!
+    school_type: String!
+    clubs: String
+    hobbies: String
+    classes: String
+    teachers: String
+    parental_approval: Boolean!
   }
   input UserInput {
     username: String!
-    password: String!
+    first_name: String!
   }
 `;
