@@ -1,3 +1,7 @@
-node_modules
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# misc
 .env
-yarn.lock
