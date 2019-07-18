@@ -3,6 +3,10 @@ exports.up = function(knex) {
     kids.increments();
 
     kids
+      .string("email", 255)
+      .notNullable()
+      .unique();
+    kids
       .string("username", 255)
       .notNullable()
       .unique();

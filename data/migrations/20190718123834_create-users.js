@@ -3,6 +3,10 @@ exports.up = function(knex) {
     users.increments();
 
     users
+      .string("email", 255)
+      .notNullable()
+      .unique();
+    users
       .string("username", 255)
       .notNullable()
       .unique();
