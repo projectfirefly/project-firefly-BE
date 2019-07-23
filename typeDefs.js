@@ -14,6 +14,7 @@ module.exports = gql`
   }
   type Mutation {
     addUser(input: UserInput!): User!
+    updateUser(id: ID!, input: UserContactInput!): User!
 
     addKid(input: KidInput!): Kid!
   }
@@ -56,6 +57,14 @@ module.exports = gql`
   input UserInput {
     email: String!
     username: String!
+  }
+  input UserContactInput {
+    first_name: String!
+    last_name: String!
+    address: String!
+    city: String!
+    state: String!
+    zip_code: String!
   }
   input KidInput {
     username: String!
