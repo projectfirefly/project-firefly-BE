@@ -3,19 +3,22 @@ exports.up = function(knex) {
     users.increments();
 
     users
+      .string("email", 255)
+      .notNullable()
+      .unique();
+    users
       .string("username", 255)
       .notNullable()
       .unique();
-    users.string("password", 255).notNullable();
 
-    users.string("first_name", 255).notNullable();
-    users.string("last_name", 255).notNullable();
+    users.string("first_name", 255);
+    users.string("last_name", 255);
 
-    users.string("mailing_address", 255).notNullable();
-    users.string("city", 255).notNullable();
-    users.string("state", 255).notNullable();
-    users.string("zip_code", 255).notNullable();
-    users.string("country", 255).notNullable();
+    users.string("address", 255);
+    users.string("city", 255);
+    users.string("state", 255);
+    users.string("zip_code", 255);
+    users.string("country", 255);
 
     users.string("marital_status", 255);
     users.string("job", 255);
