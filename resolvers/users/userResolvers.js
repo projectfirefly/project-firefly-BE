@@ -30,6 +30,11 @@ module.exports = {
     addUser: async (root, args, ctx) => {
       const user = await User.addUser(args.input);
       return user;
+    },
+
+    updateUser: async (root, args, ctx) => {
+      const user = await User.updateUser(args.id, args.input);
+      return user;
     }
   }
 };

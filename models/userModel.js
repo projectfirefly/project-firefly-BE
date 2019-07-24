@@ -4,7 +4,8 @@ module.exports = {
   findById,
   findBy,
   getAll,
-  addUser
+  addUser,
+  updateUser
 };
 
 function findById(id) {
@@ -23,5 +24,12 @@ function getAll() {
 
 async function addUser(user) {
   const [id] = await db("users").insert(user, "id");
+  return findById(id);
+}
+
+async function updateUser(id, updatedUser) {
+  const count = await db("users")
+    .where({ id })
+    .update(updatedUser);
   return findById(id);
 }
