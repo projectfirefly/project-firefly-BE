@@ -12,12 +12,15 @@ module.exports = gql`
     getKidBy(param: String!, value: String!): Kid
     getKidById(kidId: ID!): Kid
   }
+
   type Mutation {
     addUser(input: UserInput!): User!
     updateUser(id: ID!, input: UserContactInput!): User!
 
-    addKid(input: KidInput!): Kid!
+    addKid(input: [KidInput!]): Kid!
+    updateKid(input: KidInput!): Kid!
   }
+
   type User {
     id: ID!
     email: String!
@@ -36,11 +39,12 @@ module.exports = gql`
     academic_research: Boolean!
     kids: [Kid!]!
   }
+
   type Kid {
     id: ID!
-    username: String!
     first_name: String
     last_name: String
+    avatar: Avatar
     city: String
     state: String
     zip_code: String
@@ -54,10 +58,18 @@ module.exports = gql`
     teachers: String
     parental_approval: Boolean!
   }
+
+  type Avatar {
+    color: String!,
+    accessory: String!,
+    nickname: String!
+  }
+
   input UserInput {
     email: String!
     username: String!
   }
+
   input UserContactInput {
     first_name: String!
     last_name: String!
@@ -66,8 +78,10 @@ module.exports = gql`
     state: String!
     zip_code: String!
   }
+
   input KidInput {
     first_name: String!
-    last_name: String
+    last_name: String!
+    avatar: Avatar
   }
 `;
